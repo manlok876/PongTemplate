@@ -1,0 +1,13 @@
+/[Tt]emp
+/[Ll]ibrary
+/[Ll]ogs
+/[Oo]bj
+/[Pp]ackages
+/UnityGenerated
+/[Bb]uild
+/[Bb]uilds
+/*.sln
+/Assembly-CSharp.csproj
+*.suo
+*.user
+*.userprefs
