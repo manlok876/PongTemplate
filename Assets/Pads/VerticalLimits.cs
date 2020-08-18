@@ -5,9 +5,9 @@ using UnityEngine;
 public class VerticalLimits : MonoBehaviour
 {
     [SerializeField]
-    private float maxY = 1;
+    public float maxY = 1;
     [SerializeField]
-    private float minY = -1;
+    public float minY = -1;
 
     void Update()
     {
