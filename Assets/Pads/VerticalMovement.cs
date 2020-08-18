@@ -5,26 +5,40 @@ using UnityEngine;
 
 public class VerticalMovement : MonoBehaviour
 {
+    [Serializable]
+    public enum Direction
+    {
+        Stop,
+        Up,
+        Down
+    }
+
     #region Movement
     [Header("Movement")]
     [SerializeField]
     private float speed = 1f;
     #endregion
 
-    [SerializeField]
-    private KeyCode upKey;
-    [SerializeField]
-    private KeyCode downKey;
+    [NonSerialized]
+    public Direction direction;
 
     void FixedUpdate()
     {
-        if (Input.GetKey(upKey))
+        if (direction == Direction.Stop)
         {
-            transform.Translate(Vector3.up * speed * Time.fixedDeltaTime);
+            return;
         }
-        else if (Input.GetKey(downKey))
+
+        Vector3 directionVector = Vector3.zero;
+        if (direction == Direction.Up)
         {
-            transform.Translate(-Vector3.up * speed * Time.fixedDeltaTime);
+            directionVector = Vector3.up;
         }
+        else if (direction == Direction.Down)
+        {
+            directionVector = Vector3.down;
+        }
+
+        transform.Translate(directionVector * speed * Time.fixedDeltaTime);
     }
 }
