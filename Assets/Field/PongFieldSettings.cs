@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
+[ExecuteAlways]
 public class PongFieldSettings : MonoBehaviour
 {
     #region Walls
@@ -41,15 +41,32 @@ public class PongFieldSettings : MonoBehaviour
     private float padDistanceFromFieldEnd = 0.5f;
     [SerializeField]
     private GameObject padPrefab = null;
+
+    void SpawnPads()
+    {
+        Instantiate(padPrefab, firstPlayerStart);
+        Instantiate(padPrefab, secondPlayerStart);
+    }
     #endregion
+
+    void Start()
+    {
+        if (Application.isPlaying)
+        {
+            SpawnPads();
+        }
+    }
 
     void Update()
     {
-        Debug.Assert(fieldSize.x > 0 && fieldSize.y > 0, "Invalid field size!");
-        Debug.Assert(padDistanceFromFieldEnd > 0 && padDistanceFromFieldEnd < fieldHalfWidth);
+        if (!Application.isPlaying)
+        {
+            Debug.Assert(fieldSize.x > 0 && fieldSize.y > 0, "Invalid field size!");
+            Debug.Assert(padDistanceFromFieldEnd > 0 && padDistanceFromFieldEnd < fieldHalfWidth);
 
-        UpdateWalls();
-        UpdatePlayerPositions();
+            UpdateWalls();
+            UpdatePlayerPositions();
+        }
     }
 
     void UpdatePlayerPositions()
@@ -78,7 +95,7 @@ public class PongFieldSettings : MonoBehaviour
         startPosition.position = 
             transform.position + 
             transform.TransformVector(facingDirection * (fieldHalfWidth / 2 - padDistanceFromFieldEnd));
-        startPosition.rotation = Quaternion.LookRotation(Vector3.forward, facingDirection);
+        //startPosition.rotation = Quaternion.LookRotation(Vector3.forward, facingDirection);
     }
 
     void UpdateWalls()
