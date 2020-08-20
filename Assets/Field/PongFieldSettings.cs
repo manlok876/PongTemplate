@@ -60,7 +60,7 @@ public class PongFieldSettings : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            SpawnPads();
+            //SpawnPads();
         }
     }
 
