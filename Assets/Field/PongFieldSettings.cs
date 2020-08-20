@@ -31,6 +31,15 @@ public class PongFieldSettings : MonoBehaviour
     private Vector2 fieldHalfSize { get { return fieldSize / 2; } }
     #endregion
 
+    #region Players
+    [SerializeField]
+    private PongPad player1Pad = null;
+    [SerializeField]
+    private PongPad player2Pad = null;
+    [SerializeField]
+    private PongPad padPrefab = null;
+    #endregion
+
     #region PlayerPositions
     [Header("Field Settings")]
     [SerializeField]
@@ -39,13 +48,11 @@ public class PongFieldSettings : MonoBehaviour
     private Transform secondPlayerStart = null;
     [SerializeField]
     private float padDistanceFromFieldEnd = 0.5f;
-    [SerializeField]
-    private GameObject padPrefab = null;
 
     void SpawnPads()
     {
-        Instantiate(padPrefab, firstPlayerStart);
-        Instantiate(padPrefab, secondPlayerStart);
+        player1Pad = Instantiate(padPrefab, firstPlayerStart);
+        player2Pad = Instantiate(padPrefab, secondPlayerStart);
     }
     #endregion
 
