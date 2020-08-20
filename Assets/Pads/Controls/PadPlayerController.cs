@@ -5,6 +5,15 @@ using UnityEngine;
 
 public class PadPlayerController : MonoBehaviour
 {
+    [Serializable]
+    public enum Player
+    {
+        None,
+        Player1,
+        Player2,
+        AI
+    }
+
     [SerializeField]
     private VerticalMovement moveComponent = null;
 
