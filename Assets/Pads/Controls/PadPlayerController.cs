@@ -1,15 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PadPlayerController : MonoBehaviour
 {
+    [SerializeField]
     private VerticalMovement moveComponent = null;
-
-    void Awake()
-    {
-        moveComponent = GetComponent<VerticalMovement>();
-    }
 
     void Update()
     {
@@ -18,6 +15,11 @@ public class PadPlayerController : MonoBehaviour
             return;
         }
 
+        UpdateGameInput();
+    }
+
+    private void UpdateGameInput()
+    {
         float inputValue = Input.GetAxis("Vertical");
 
         if (inputValue > 0)
