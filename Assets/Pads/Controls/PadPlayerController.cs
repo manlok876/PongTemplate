@@ -17,6 +17,14 @@ public class PadPlayerController : MonoBehaviour
     [SerializeField]
     private VerticalMovement moveComponent = null;
 
+    void Start()
+    {
+        if (moveComponent == null)
+        {
+            moveComponent = GetComponent<VerticalMovement>();
+        }
+    }
+
     void Update()
     {
         if (!moveComponent)
