@@ -39,6 +39,6 @@ public class VerticalMovement : MonoBehaviour
             directionVector = Vector3.down;
         }
 
-        transform.Translate(directionVector * speed * Time.fixedDeltaTime);
+        transform.Translate(directionVector * speed * Time.fixedDeltaTime, Space.World);
     }
 }
