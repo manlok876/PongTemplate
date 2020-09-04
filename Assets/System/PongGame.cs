@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PongGame : MonoBehaviour
 {
@@ -15,6 +16,16 @@ public class PongGame : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void StartGame()
+    {
+        ChangeLevel("BasicPong");
+    }
+
+    public void ChangeLevel(string levelName)
+    {
+        SceneManager.LoadScene(levelName, LoadSceneMode.Single);
     }
 
     public void ExitGame()
