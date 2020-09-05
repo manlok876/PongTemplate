@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &497532461638643837
+--- !u!1001 &2879757131286808191
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -115,12 +115,12 @@ PrefabInstance:
     - target: {fileID: 4571005541546866223, guid: 1121e63c7780df24391d1eb9331a8002,
         type: 3}
       propertyPath: m_Name
-      value: ExitButtonText
+      value: SettingsButtonText
       objectReference: {fileID: 0}
     - target: {fileID: 4965739147819831550, guid: 1121e63c7780df24391d1eb9331a8002,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4965739147819831550, guid: 1121e63c7780df24391d1eb9331a8002,
         type: 3}
@@ -140,7 +140,7 @@ PrefabInstance:
     - target: {fileID: 4965739147819831550, guid: 1121e63c7780df24391d1eb9331a8002,
         type: 3}
       propertyPath: m_text
-      value: Exit
+      value: Settings
       objectReference: {fileID: 0}
     - target: {fileID: 4965739147819831550, guid: 1121e63c7780df24391d1eb9331a8002,
         type: 3}
@@ -150,7 +150,7 @@ PrefabInstance:
     - target: {fileID: 6244715632378178002, guid: 1121e63c7780df24391d1eb9331a8002,
         type: 3}
       propertyPath: m_Name
-      value: ExitButton
+      value: SettingsButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1121e63c7780df24391d1eb9331a8002, type: 3}
