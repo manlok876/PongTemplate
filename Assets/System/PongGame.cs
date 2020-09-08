@@ -19,11 +19,24 @@ public class PongGame : MonoBehaviour
     }
     #endregion
 
+    #region GameState
+    public class PongGameState
+    {
+        public int numPlayers = 2;
+        public int[] playerScores = new int[2] { 0, 0 };
+    }
+
+    public PongGameState gameState { get; private set; } = new PongGameState();
+    private void ResetGameState()
+    {
+        gameState = new PongGameState();
+    }
+    #endregion
+
     void Awake()
     {
         EnsureInstanceExists();
     }
-
 
     #region MainMenu
     public void StartGame()
