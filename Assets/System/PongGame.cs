@@ -3,9 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class PongGame : MonoBehaviour
 {
+    #region Singleton
     public static PongGame instance { get; private set; } = null;
-
-    void Awake()
+    private void EnsureInstanceExists()
     {
         if (instance == null)
         {
@@ -17,7 +17,15 @@ public class PongGame : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    #endregion
 
+    void Awake()
+    {
+        EnsureInstanceExists();
+    }
+
+
+    #region MainMenu
     public void StartGame()
     {
         ChangeLevel("BasicPong");
@@ -36,4 +44,5 @@ public class PongGame : MonoBehaviour
             Application.Quit();
         #endif
     }
+    #endregion
 }
