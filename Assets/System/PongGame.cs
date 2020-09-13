@@ -33,6 +33,11 @@ public class PongGame : MonoBehaviour
     }
     #endregion
 
+    #region UI
+    [SerializeField]
+    private PongGameUI gameUI = null;
+    #endregion
+
     void Awake()
     {
         EnsureInstanceExists();
