@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 // In-game UI, with scores, time, etc.
 public class PongGameUI : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+    #region Score
+    [SerializeField]
+    private TextMeshProUGUI[] scoreTexts = null;
 
-    void Update()
+    void UpdateScore(int playerNum, float score)
     {
-        
+        // Check player index
+
+        string scoreText = ((int)score).ToString();
+
+        scoreTexts[playerNum].SetText(scoreText);
     }
+    #endregion
 }
