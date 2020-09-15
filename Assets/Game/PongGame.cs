@@ -26,10 +26,19 @@ public class PongGame : MonoBehaviour
         public int[] playerScores = new int[2] { 0, 0 };
     }
 
+
     public PongGameState gameState { get; private set; } = new PongGameState();
     private void ResetGameState()
     {
         gameState = new PongGameState();
+    }
+
+    void OnPlayerScored(int playerIndex)
+    {
+        // Check player index 
+
+        gameState.playerScores[playerIndex]++;
+        gameUI.UpdateScore(playerIndex, gameState.playerScores[playerIndex]);
     }
     #endregion
 
