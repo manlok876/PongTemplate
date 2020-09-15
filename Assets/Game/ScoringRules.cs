@@ -3,5 +3,5 @@ using UnityEngine;
 
 public class ScoringRules : ScriptableObject
 {
-    event Action<int> OnPlayerScored;
+    public event Action<int> OnPlayerScored;
 }

@@ -10,7 +10,7 @@ public class PongGameUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI[] scoreTexts = null;
 
-    void UpdateScore(int playerNum, float score)
+    public void UpdateScore(int playerNum, float score)
     {
         // Check player index
 
