@@ -15,7 +15,27 @@ public class PadPlayerController : MonoBehaviour
     }
 
     [SerializeField]
+    private Player player = Player.None;
+    [SerializeField]
     private VerticalMovement moveComponent = null;
+    private string axisName
+    {
+        get
+        {
+            if (player == Player.Player1)
+            {
+                return "Player1Vertical";
+            }
+            else if (player == Player.Player2)
+            {
+                return "Player2Vertical";
+            }
+            else
+            {
+                return "";
+            }
+        }
+    }
 
     void Start()
     {
@@ -37,7 +57,11 @@ public class PadPlayerController : MonoBehaviour
 
     private void UpdateGameInput()
     {
-        float inputValue = Input.GetAxis("Vertical");
+        if (player == Player.None)
+        {
+            return;
+        }
+        float inputValue = Input.GetAxis(axisName);
 
         if (inputValue > 0)
         {
