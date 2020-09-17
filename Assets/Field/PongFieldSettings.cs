@@ -101,7 +101,7 @@ public class PongFieldSettings : MonoBehaviour
 
         startPosition.position = 
             transform.position + 
-            transform.TransformVector(facingDirection * (fieldHalfWidth / 2 - padDistanceFromFieldEnd));
+            transform.TransformVector(facingDirection * (fieldHalfWidth - padDistanceFromFieldEnd));
         //startPosition.rotation = Quaternion.LookRotation(Vector3.forward, facingDirection);
     }
 
