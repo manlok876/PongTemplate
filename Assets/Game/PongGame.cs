@@ -52,15 +52,41 @@ public class PongGame : MonoBehaviour
         EnsureInstanceExists();
     }
 
-    #region MainMenu
-    public void StartGame()
+    #region GameFlow
+    public bool isPaused { get; private set; } = false;
+
+    public void Pause()
     {
-        ChangeLevel("BasicPong");
+        if (isPaused)
+        {
+            return;
+        }
+
+        Time.timeScale = 0;
+        isPaused = true;
+    }
+
+    public void Unpause()
+    {
+        if (!isPaused)
+        {
+            return;
+        }
+
+        Time.timeScale = 1;
+        isPaused = false;
     }
 
     public void ChangeLevel(string levelName)
     {
         SceneManager.LoadScene(levelName, LoadSceneMode.Single);
+    }
+    #endregion
+
+    #region MainMenu
+    public void StartGame()
+    {
+        ChangeLevel("BasicPong");
     }
 
     public void ExitGame()
