@@ -89,6 +89,11 @@ public class PongGame : MonoBehaviour
         ChangeLevel("BasicPong");
     }
 
+    public void ReturnToMainMenu()
+    {
+        ChangeLevel("MainMenu");
+    }
+
     public void ExitGame()
     {
         #if UNITY_EDITOR
