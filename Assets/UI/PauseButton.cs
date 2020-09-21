@@ -5,21 +5,17 @@ using UnityEngine;
 public class PauseButton : MonoBehaviour
 {
     [SerializeField]
-    private GameObject ingameMenu = null;
+    private IngameMenu ingameMenu = null;
     
     public void OnClick()
     {
-        PongGame game = PongGame.instance;
-
-        if (game.isPaused)
+        if (PongGame.instance.isPaused)
         {
-            game.Unpause();
-            ingameMenu.SetActive(false);
+            ingameMenu.ResumeGame();
         }
         else
         {
-            game.Pause();
-            ingameMenu.SetActive(true);
+            ingameMenu.PauseGame();
         }
     }
 }
