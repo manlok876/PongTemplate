@@ -530,7 +530,6 @@ GameObject:
   - component: {fileID: 623907296}
   - component: {fileID: 623907295}
   - component: {fileID: 623907294}
-  - component: {fileID: 623907293}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -558,19 +557,6 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: -75}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &623907293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623907291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 631db231aec5b8e4ca4463cc929fa257, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingameMenu: {fileID: 839203368}
 --- !u!114 &623907294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,8 +600,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 623907293}
-        m_MethodName: OnClick
+      - m_Target: {fileID: 839203370}
+        m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1053,6 +1039,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 839203369}
+  - component: {fileID: 839203370}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -1081,6 +1068,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &839203370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839203368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f853db023a46045897ac184f28b188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &928342011 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9111207863037186497, guid: d2ade03da14be2e488e5dbae39d3265e,
@@ -1175,8 +1174,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2018426799}
-        m_MethodName: ReturnToMainMenu
+      - m_Target: {fileID: 839203370}
+        m_MethodName: ReturnToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2167,7 +2166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631db231aec5b8e4ca4463cc929fa257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingameMenu: {fileID: 839203368}
+  ingameMenu: {fileID: 839203370}
 --- !u!114 &1797572900
 MonoBehaviour:
   m_ObjectHideFlags: 0
