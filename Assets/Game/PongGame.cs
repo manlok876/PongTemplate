@@ -79,6 +79,7 @@ public class PongGame : MonoBehaviour
 
     public void ChangeLevel(string levelName)
     {
+        Unpause();
         SceneManager.LoadScene(levelName, LoadSceneMode.Single);
     }
     #endregion
