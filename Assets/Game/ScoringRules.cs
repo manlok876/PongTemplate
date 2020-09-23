@@ -7,6 +7,9 @@ public class ScoringRules : MonoBehaviour
 
     protected void PlayerScored(int playerIndex)
     {
-        OnPlayerScored.Invoke(playerIndex);
+        if (OnPlayerScored != null)
+        {
+            OnPlayerScored.Invoke(playerIndex);
+        }
     }
 }
