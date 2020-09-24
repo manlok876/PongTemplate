@@ -39,6 +39,12 @@ public class PongGame : MonoBehaviour
 
         gameState.playerScores[playerIndex]++;
         gameUI.UpdateScore(playerIndex, gameState.playerScores[playerIndex]);
+
+        GameObject ball = GameObject.FindWithTag("Ball");
+        if (ball != null)
+        {
+            Destroy(ball, 0.5f);
+        }
     }
     #endregion
 
