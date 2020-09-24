@@ -6,6 +6,9 @@ public class EnterScoringZone : ScoringZone
 {
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Score();
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            Score();
+        }
     }
 }
