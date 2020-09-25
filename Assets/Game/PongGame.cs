@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PongGame : MonoBehaviour
@@ -33,6 +34,22 @@ public class PongGame : MonoBehaviour
         gameState = new PongGameState();
     }
 
+    private void AttachToArbiter()
+    {
+        ScoringRules arbiter = FindObjectOfType<ScoringRules>();
+        if (arbiter != null)
+        {
+            arbiter.OnPlayerScored += OnPlayerScored;
+        }
+    }
+    private void DetachFromArbiter()
+    {
+        ScoringRules arbiter = FindObjectOfType<ScoringRules>();
+        if (arbiter != null)
+        {
+            arbiter.OnPlayerScored -= OnPlayerScored;
+        }
+    }
     void OnPlayerScored(int playerIndex)
     {
         // Check player index 
@@ -56,6 +73,12 @@ public class PongGame : MonoBehaviour
     void Awake()
     {
         EnsureInstanceExists();
+        if (instance != this)
+        {
+            return;
+        }
+
+        SceneManager.sceneLoaded += OnLevelLoaded;
     }
 
     #region GameFlow
@@ -87,6 +110,17 @@ public class PongGame : MonoBehaviour
     {
         Unpause();
         SceneManager.LoadScene(levelName, LoadSceneMode.Single);
+    }
+
+    private void OnLevelLoaded(Scene scene, LoadSceneMode loadMode)
+    {
+        if (scene.name == "MainMenu")
+        {
+            return;
+        }
+
+        ResetGameState();
+        AttachToArbiter();
     }
     #endregion
 
