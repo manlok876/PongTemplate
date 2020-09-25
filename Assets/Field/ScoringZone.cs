@@ -9,6 +9,9 @@ public class ScoringZone : MonoBehaviour
 
     protected void Score()
     {
-        OnScored.Invoke();
+        if (OnScored != null)
+        {
+            OnScored.Invoke();
+        }
     }
 }
