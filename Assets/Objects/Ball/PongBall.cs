@@ -10,6 +10,11 @@ public class PongBall : MonoBehaviour
 
     void Start()
     {
+        AddInitialImpulse();
+    }
+
+    void AddInitialImpulse()
+    {
         Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
         rigidbody.velocity = Vector2.right * startingSpeed;
     }
