@@ -19,4 +19,14 @@ public class PongGameUI : MonoBehaviour
         scoreTexts[playerNum].SetText(scoreText);
     }
     #endregion
+
+    void Awake()
+    {
+        PongGame game = FindObjectOfType<PongGame>();
+
+        if (game != null)
+        {
+            game.SubscribeUI(this);
+        }
+    }
 }

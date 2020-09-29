@@ -68,6 +68,18 @@ public class PongGame : MonoBehaviour
     #region UI
     [SerializeField]
     private PongGameUI gameUI = null;
+
+    public void SubscribeUI(PongGameUI newUI)
+    {
+        gameUI = newUI;
+        if (gameState != null)
+        {
+            for (int playerIdx = 0; playerIdx < gameState.numPlayers; playerIdx++)
+            {
+                gameUI.UpdateScore(playerIdx, gameState.playerScores[playerIdx]);
+            }
+        }
+    }
     #endregion
 
     void Awake()
